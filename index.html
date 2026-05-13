@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Question Bank Viewer</title>
+<title>IPH QB</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -293,10 +293,10 @@
       <line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="11" x2="19" y2="11"/><line x1="3" y1="16" x2="19" y2="16"/>
     </svg>
   </button>
-  <div class="logo">QBank <span>viewer</span></div>
+  <div class="logo">IPH <span>QBank</span></div>
   <div class="search-wrap">
     <span class="icon">🔍</span>
-    <input type="text" id="searchInput" placeholder="Search questions…" autocomplete="off">
+    <input type="text" id="searchInput" placeholder="Type text and select a category..." autocomplete="off">
   </div>
   <div class="header-stats">
     <div class="stat-pill"><strong id="statCats">0</strong> categories</div>
@@ -305,8 +305,7 @@
 </header>
 
 <div class="filter-bar">
-  <span class="filter-label">Type:</span>
-  <button class="chip active" data-type="all">All</button>
+  <span class="filter-label">Select a category:</span>
   <button class="chip type-multichoice" data-type="multichoice">Multiple Choice</button>
   <button class="chip type-essay" data-type="essay">Essay</button>
   <button class="chip type-shortanswer" data-type="shortanswer">Short Answer</button>
@@ -316,7 +315,6 @@
 <!-- Mobile bottom nav (mirrors filter bar) -->
 <nav class="bottom-nav">
   <div class="bottom-nav-inner">
-    <button class="chip active" data-type-m="all">All</button>
     <button class="chip type-multichoice" data-type-m="multichoice">MCQ</button>
     <button class="chip type-essay" data-type-m="essay">Essay</button>
     <button class="chip type-shortanswer" data-type-m="shortanswer">Short Ans</button>
@@ -341,7 +339,6 @@
 </aside>
 
 <div class="layout">
-  <aside class="sidebar" id="sidebar"></aside>
   <main class="main" id="mainContent"></main>
 </div>
 
