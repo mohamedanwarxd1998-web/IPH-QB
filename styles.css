@@ -34,6 +34,7 @@
   .chip:hover { border-color: var(--accent2); color: var(--text); }
   .chip.active { background: var(--accent2); border-color: var(--accent2); color: #0e0f14; font-weight: 600; }
   .chip.type-multichoice.active { background: var(--mc-color); border-color: var(--mc-color); }
+  .chip.type-fp26.active { background: var(--mc-color); border-color: var(--mc-color); }
   .chip.type-essay.active { background: var(--essay-color); border-color: var(--essay-color); }
   .chip.type-shortanswer.active { background: var(--short-color); border-color: var(--short-color); }
   .chip.type-match.active { background: var(--match-color); border-color: var(--match-color); }
@@ -77,7 +78,18 @@
   .q-text { font-size: 0.95rem; line-height: 1.6; color: var(--text); }
   .q-text p { margin-bottom: 0.4rem; }
   .q-text p:last-child { margin-bottom: 0; }
-  .q-text img { max-width: 100%; max-height: 280px; border-radius: 8px; border: 1px solid var(--border); margin: 0.5rem 0; display: block; object-fit: contain; background: #fff; }
+  .q-text img {
+  width: 100%;
+  max-width: 520px;
+  max-height: 320px;
+  object-fit: contain;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: white;
+  padding: 0.4rem;
+  margin-top: 0.8rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+  }
 
   /* Placeholder image wrapper */
   .q-placeholder-img { display: inline-block; margin: 0.5rem 0; border-radius: 8px; border: 1px dashed var(--accent3); overflow: hidden; background: var(--surface2); }
@@ -87,6 +99,7 @@
   .q-meta { display: flex; align-items: center; gap: 0.6rem; margin-top: 0.5rem; flex-wrap: wrap; }
   .type-badge { font-size: 0.7rem; font-family: 'JetBrains Mono', monospace; border-radius: 4px; padding: 0.15rem 0.5rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.04em; }
   .badge-multichoice { background: rgba(129,140,248,0.15); color: var(--mc-color); }
+  .badge-fp26 { background: rgba(129,140,248,0.15); color: var(--mc-color); }
   .badge-essay { background: rgba(251,146,60,0.15); color: var(--essay-color); }
   .badge-shortanswer { background: rgba(110,231,183,0.15); color: var(--short-color); }
   .badge-match { background: rgba(244,114,182,0.15); color: var(--match-color); }

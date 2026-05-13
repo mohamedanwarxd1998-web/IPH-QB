@@ -51,7 +51,7 @@ const mainContent = document.getElementById('mainContent');
 const searchInput = document.getElementById('searchInput');
 
 function typeBadge(t) {
-  const labels = { multichoice: 'MCQ', essay: 'Essay', shortanswer: 'Short Ans', match: 'Matching' };
+  const labels = { multichoice: 'MCQ', fp26: 'Fin & Pra 2026', essay: 'Essay', shortanswer: 'Short Ans', match: 'Matching' };
   return `<span class="type-badge badge-${t}">${labels[t] || t}</span>`;
 }
 
@@ -131,6 +131,15 @@ function renderQuestionCard(q, idx) {
 
   } else if (q.type === 'essay') {
     answersHtml = `<div class="answer-row"><span class="answer-text" style="color:var(--muted);font-style:italic">Open-ended essay — no predefined answers</span></div>`;
+
+  } else if (q.type === 'fp26' && q.answers.length) {
+    answersHtml = q.answers.map((a, i) => `
+      <div class="answer-row ${a.correct ? 'correct' : ''}">
+        <span class="answer-letter">${letters[i]}</span>
+        <span class="answer-text">${a.text || '<em style="color:var(--muted)">—</em>'}</span>
+        ${a.correct ? '<span class="correct-icon">✓</span>' : ''}
+      </div>`).join('');
+
   }
 
   const hasAnswers = !!answersHtml;
@@ -313,6 +322,9 @@ document.getElementById('exportAnkiBtn').addEventListener('click', () => {
       backText = q.pairs.map(p => `${p.q} → ${p.a}`).join(' | ').replace(/"/g, '""');
     } else if (q.type === 'essay') {
       backText = "Open-ended essay format.";
+    } else if (q.type === 'fp26') {
+      const correctAns = (q.answers || []).filter(a => a.correct).map(a => a.text).join(' | ');
+      backText = correctAns.replace(/"/g, '""');
     }
 
     csvContent += `"${frontText}","${backText}"\n`;
